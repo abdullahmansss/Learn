@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#61D7A8</color>
+    <color name="colorPrimaryDark">#61D7A8</color>
+    <color name="colorAccent">#61D7A8</color>
+
+    <color name="culture">#ED7775</color>
+    <color name="language">#03A392</color>
+    <color name="challenge">#EEBC5A</color>
+    <color name="entertainment">#94CCE7</color>
+</resources>

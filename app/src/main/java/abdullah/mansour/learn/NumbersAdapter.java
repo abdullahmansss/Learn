@@ -1,6 +1,8 @@
 package abdullah.mansour.learn;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +16,15 @@ import abdullah.mansour.learn.Models.NumberModel;
 
 public class NumbersAdapter extends ArrayAdapter<NumberModel>
 {
-    TextView number_e,number_a;
-    ImageView number_image;
+    TextView name_e,name_a;
+    ImageView imageView;
 
-    public NumbersAdapter(Context context, int resource, List<NumberModel> numberModelList)
+    List<NumberModel> list;
+
+    public NumbersAdapter(Context context, int resource, List<NumberModel> numberModels)
     {
-        super(context, resource, numberModelList);
+        super(context, resource, numberModels);
+        this.list = numberModels;
     }
 
     @Override
@@ -30,16 +35,15 @@ public class NumbersAdapter extends ArrayAdapter<NumberModel>
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.number_item, parent, false);
         }
 
-        NumberModel numberModel = getItem(position);
+        NumberModel numberModel = list.get(position);
 
-        number_e = convertView.findViewById(R.id.number_e);
-        number_a = convertView.findViewById(R.id.number_a);
-        number_image = convertView.findViewById(R.id.number_image);
+        name_e = convertView.findViewById(R.id.number_e);
+        name_a = convertView.findViewById(R.id.number_a);
+        imageView = convertView.findViewById(R.id.number_image);
 
-        number_e.setText(numberModel.getNumber_a());
-        number_a.setText(numberModel.getNumber_e());
-
-        number_image.setImageResource(numberModel.getNumber_image());
+        name_e.setText(numberModel.getNumber_e());
+        name_a.setText(numberModel.getNumber_a());
+        imageView.setImageResource(numberModel.getNumber_image());
 
         return convertView;
     }
